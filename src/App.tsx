@@ -1,24 +1,50 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {
+  BrowserRouter,
+  Routes,
+  Route,  
+} from 'react-router-dom';
+import { LinkContainer } from 'react-router-bootstrap';
+import Activities from './components/Activities';
+import Habbits from './components/Habbits';
+import Analytics from './components/Analytics';
+import Settings from './components/Settings';
+
+
+import { Navbar, Container, Nav, Button } from 'react-bootstrap';
+import './App.scss';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <BrowserRouter>
+        <Navbar bg="dark" variant="dark">
+          <Container>
+            <Navbar.Brand href="#activities">Time tacker</Navbar.Brand>
+            <Nav className="me-auto">              
+              <LinkContainer to='/'>
+                <Button variant='link'>Activities</Button>
+              </LinkContainer>
+              <LinkContainer to='/habbits'>
+                <Button variant='link'>Habbits</Button>
+              </LinkContainer>
+              <LinkContainer to='/analytics'>
+                <Button variant='link'>Analytics</Button>
+                </LinkContainer>
+              <LinkContainer to='/settings'>
+                <Button variant='link'>Settings</Button>
+              </LinkContainer>              
+            </Nav>
+          </Container>
+        </Navbar>
+
+        <Routes>
+          <Route path="/" element={<Activities />} />
+          <Route path="/habbits" element={<Habbits />} />
+          <Route path="/analytics" element={<Analytics />} />
+          <Route path="/settings" element={<Settings />} />    
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
