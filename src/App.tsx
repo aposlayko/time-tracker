@@ -5,7 +5,7 @@ import {
   Route,  
 } from 'react-router-dom';
 import { LinkContainer } from 'react-router-bootstrap';
-import Activities from './components/Activities';
+import ActivityPage from './components/activity-page/ActivityPage';
 import Habbits from './components/Habbits';
 import Analytics from './components/Analytics';
 import Settings from './components/Settings';
@@ -39,7 +39,7 @@ function App() {
         </Navbar>
 
         <Routes>
-          <Route path="/" element={<Activities />} />
+          <Route path="/" element={<ActivityPage />} />
           <Route path="/habbits" element={<Habbits />} />
           <Route path="/analytics" element={<Analytics />} />
           <Route path="/settings" element={<Settings />} />    
